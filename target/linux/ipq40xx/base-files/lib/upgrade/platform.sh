@@ -53,6 +53,9 @@ platform_do_upgrade() {
 	qxwlan,e2600ac-c2)
 		nand_do_upgrade "$1"
 		;;
+	p2w,r619ac)
+		nand_do_upgrade "$1"
+		;;
 	asus,map-ac2200)
 		CI_KERNPART="linux"
 		nand_do_upgrade "$1"

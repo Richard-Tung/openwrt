@@ -17,7 +17,7 @@ define Device/tplink_archer-c2-v3
   ATH_SOC := qca9563
   IMAGE_SIZE := 7808k
   DEVICE_TITLE := TP-Link Archer C2 v3
-  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9887-ct
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9887-ct
   TPLINK_BOARD_ID := ARCHER-C2-V3
 endef
 TARGET_DEVICES += tplink_archer-c2-v3
@@ -28,7 +28,7 @@ define Device/tplink_archer-c25-v1
   IMAGE_SIZE := 7808k
   DEVICE_TITLE := TP-Link Archer C25 v1
   TPLINK_BOARD_ID := ARCHER-C25-V1
-  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9887-ct
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9887-ct
   SUPPORTED_DEVICES += archer-c25-v1
 endef
 TARGET_DEVICES += tplink_archer-c25-v1
@@ -39,7 +39,7 @@ define Device/tplink_archer-c58-v1
   IMAGE_SIZE := 7936k
   DEVICE_TITLE := TP-Link Archer C58 v1
   TPLINK_BOARD_ID := ARCHER-C58-V1
-  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9888-ct
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9888-ct
   SUPPORTED_DEVICES += archer-c58-v1
 endef
 TARGET_DEVICES += tplink_archer-c58-v1
@@ -54,6 +54,28 @@ define Device/tplink_archer-c59-v1
   SUPPORTED_DEVICES += archer-c59-v1
 endef
 TARGET_DEVICES += tplink_archer-c59-v1
+
+define Device/tplink_archer-c60-v1
+  $(Device/tplink-safeloader-uimage)
+  ATH_SOC := qca9561
+  IMAGE_SIZE := 7936k
+  DEVICE_TITLE := TP-Link Archer C60 v1
+  TPLINK_BOARD_ID := ARCHER-C60-V1
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9888-ct
+  SUPPORTED_DEVICES += archer-c60-v1
+endef
+TARGET_DEVICES += tplink_archer-c60-v1
+
+define Device/tplink_archer-c60-v2
+  $(Device/tplink-safeloader-uimage)
+  ATH_SOC := qca9561
+  IMAGE_SIZE := 7808k
+  DEVICE_TITLE := TP-Link Archer C60 v2
+  TPLINK_BOARD_ID := ARCHER-C60-V2
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9888-ct
+  SUPPORTED_DEVICES += archer-c60-v2
+endef
+TARGET_DEVICES += tplink_archer-c60-v2
 
 define Device/tplink_archer-c6-v2
   $(Device/tplink-safeloader-uimage)
@@ -79,7 +101,7 @@ define Device/tplink_archer-c7-v1
   $(Device/tplink-8mlzma)
   ATH_SOC := qca9558
   DEVICE_TITLE := TP-Link Archer C7 v1
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport kmod-ath10k-ct ath10k-firmware-qca988x-ct
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport
   TPLINK_HWID := 0x75000001
   SUPPORTED_DEVICES += archer-c7
 endef
@@ -149,7 +171,7 @@ TARGET_DEVICES += tplink_cpe210-v3
 define Device/tplink_archer-d50-v1
   ATH_SOC := qca9531
   DEVICE_TITLE := TP-Link Archer D50 v1
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport kmod-ath10k-ct ath10k-firmware-qca988x-ct
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport kmod-ath10k-ct-smallbuffers ath10k-firmware-qca988x-ct
   BOARDNAME := ARCHER-D50-V1
   IMAGE_SIZE := 7808k
   TPLINK_HWID := 0xC1200001
@@ -184,7 +206,7 @@ define Device/tplink_re450-v2
   ATH_SOC := qca9563
   IMAGE_SIZE := 6016k
   DEVICE_TITLE := TP-Link RE450 v2
-  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca988x-ct
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca988x-ct
   TPLINK_HWID := 0x0
   TPLINK_HWREV := 0
   TPLINK_BOARD_ID := RE450-V2
@@ -211,6 +233,16 @@ define Device/tplink_tl-wdr4300-v1
   SUPPORTED_DEVICES += tl-wdr4300
 endef
 TARGET_DEVICES += tplink_tl-wdr4300-v1
+
+define Device/tplink_tl-wdr4300-v1-il
+  $(Device/tplink-8mlzma)
+  ATH_SOC := ar9344
+  DEVICE_TITLE := TP-Link TL-WDR4300 v1 (IL)
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x43008001
+  SUPPORTED_DEVICES += tl-wdr4300
+endef
+TARGET_DEVICES += tplink_tl-wdr4300-v1-il
 
 define Device/tplink_tl-wdr4900-v2
   $(Device/tplink-8mlzma)
@@ -303,7 +335,7 @@ define Device/tplink_tl-wr1043nd-v3
   DEVICE_TITLE := TP-Link TL-WR1043N/ND v3
   DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport
   TPLINK_HWID := 0x10430003
-  SUPPORTED_DEVICES += tl-wr1043nd-v3
+  SUPPORTED_DEVICES += tl-wr1043nd-v2
 endef
 TARGET_DEVICES += tplink_tl-wr1043nd-v3
 

@@ -91,7 +91,7 @@ on,n150r)
 	ucidef_set_led_switch "lan2" "LAN2" "netgear:green:lan2" "switch0" "0x04" "0x0f"
 	;;
 pcs,cap324)
-	ucidef_set_led_netdev "lan" "LAN" "pcs:lan:green" "eth0"
+	ucidef_set_led_netdev "lan" "LAN" "pcs:green:lan" "eth0"
 	;;
 pcs,cr3000)
 	ucidef_set_led_netdev "wan" "WAN" "pcs:blue:wan" "eth1"
@@ -253,7 +253,7 @@ ubnt,nanostation-ac)
 wd,mynet-wifi-rangeextender)
 	ucidef_set_led_netdev "lan" "LAN" "$boardname:green:lan" "eth0"
 	ucidef_set_rssimon "wlan0" "200000" "1"
-	ucidef_set_led_rssi "rssilow" "RSSILOW" "$boardname:rssi-low" "wlan0" "1" "100"
+	ucidef_set_led_rssi "rssilow" "RSSILOW" "$boardname:blue:rssi-low" "wlan0" "1" "100"
 	ucidef_set_led_rssi "rssimedium" "RSSIMED" "$boardname:blue:rssi-med" "wlan0" "33" "100"
 	ucidef_set_led_rssi "rssihigh" "RSSIMAX" "$boardname:blue:rssi-max" "wlan0" "66" "100"
 	;;

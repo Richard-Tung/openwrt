@@ -61,6 +61,19 @@ endef
 
 $(eval $(call KernelPackage,hwmon-adt7410))
 
+define KernelPackage/hwmon-aht10
+  TITLE:=AHT10/AHT20 and compat. monitoring support
+  KCONFIG:=CONFIG_SENSORS_AHT10
+  FILES:=$(LINUX_DIR)/drivers/hwmon/aht10.ko
+  AUTOLOAD:=$(call AutoProbe,aht10)
+  $(call AddDepends/hwmon,+kmod-i2c-core +kmod-lib-crc8)
+endef
+
+define KernelPackage/hwmon-aht10/description
+ Kernel module for AHT10/AHT20 temperature and humidity sensors chip
+endef
+
+$(eval $(call KernelPackage,hwmon-aht10))
 
 define KernelPackage/hwmon-adt7475
   TITLE:=ADT7473/7475/7476/7490 monitoring support

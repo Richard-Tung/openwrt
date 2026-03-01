@@ -3574,3 +3574,13 @@ define Device/zyxel_wsm20
   KERNEL_INITRAMFS := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb | znet-header V1.00(ABZF.0)C0
 endef
 TARGET_DEVICES += zyxel_wsm20
+
+define Device/richard_mt7621-ig-router
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  DEVICE_VENDOR := Richard
+  DEVICE_MODEL := MT7621 Integrated Router
+  DEVICE_PACKAGES += kmod-usb3 kmod-hwmon-core kmod-hwmon-ina2xx kmod-hwmon-ath10 -uboot-envtools
+  IMAGE_SIZE := 32448k
+endef
+TARGET_DEVICES += richard_mt7621-ig-router
